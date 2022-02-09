@@ -17,4 +17,11 @@ describe('Cypress basic', () => {
         //TODO imprimir o log no console
         //TODO escrever o title em um campo de teste
     })
+    it.only('Should find and interact with and element', () => {
+        cy.visit('https://wcaquino.me/cypress/componentes.html')
+        cy.get('#buttonSimple')
+            .click()
+            .should('have.value', 'Obrigado!')
+    });
+    //lembrar que cypress tem o botão de inspecionar e gerar o get e contains do elemento na UI dele.
 })
