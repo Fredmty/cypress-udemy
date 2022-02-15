@@ -15,11 +15,24 @@ describe('Cypress basic', () => {
                 .should('contain', 'Campo')
                 .and('contain', 'Campo');
        // cy.title().debug()
+
+        let syncTitle
+
        cy.title().then(title => {
            console.log(title);
+           cy.get('#formNome').type(title);
+           syncTitle = title
        })
+
+       cy.get('[data-cy=dataSobrenome]').then($el => {
+           $el.val(syncTitle)
+       });
+
+       cy.get('#elementosform\\:sugestoes').then($el => {
+           cy.wrap($el).type(syncTitle)
+       });
         //TODO imprimir o log no console --feito
-        //TODO escrever o title em um campo de teste
+        //TODO escrever o title em um campo de teste --feito
     })
     it('Should find and interact with and element', () => {
         cy.visit('https://wcaquino.me/cypress/componentes.html')
