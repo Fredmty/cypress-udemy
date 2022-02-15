@@ -14,8 +14,11 @@ describe('Cypress basic', () => {
                 .should('be.equal','Campo de Treinamento')
                 .should('contain', 'Campo')
                 .and('contain', 'Campo');
-        
-        //TODO imprimir o log no console
+       // cy.title().debug()
+       cy.title().then(title => {
+           console.log(title);
+       })
+        //TODO imprimir o log no console --feito
         //TODO escrever o title em um campo de teste
     })
     it('Should find and interact with and element', () => {

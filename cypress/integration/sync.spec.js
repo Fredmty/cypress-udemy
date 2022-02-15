@@ -48,6 +48,18 @@ describe('Esperas', () =>  {
         .should('have.length', 2);
 
     });
-
-
+    it(' click retry', () => {
+        cy.get('#buttonCount')
+        .click()
+        .should('have.value', '1')
+    });
+    //should aguarda a verificação ficar pronta e depois imprime o resultado --ignora o que esta dentro do return
+    //then fica 'validando' toda chamada e causa mais impressões na tela -- se não retornar nada, retorna o mesmo objeto. Return muda o return do then
+    it.only('should vs then', () => {
+        cy.get('#buttonListDOM').then($el =>{
+            console.log($el);
+            expect($el).to.have.length(1)
+            cy.get('#buttonList');
+        })
+    });
 })
