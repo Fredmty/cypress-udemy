@@ -1,3 +1,4 @@
+
 /// <reference types="cypress"/>
 //é possível escrever uma mensagem com o erro que deveria aparecer na tela
 it('Igualdade', () => {
