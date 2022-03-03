@@ -7,7 +7,7 @@ it('pegar informação do arquivo', function ()  {
       cy.get('#formNome').type(this.usuario.nome)
       cy.get('#formSobrenome').type(this.usuario.sobrenome);
       cy.get(`[name=formSexo][value=${this.usuario.sexo}]`).click();
-      //cy.get(`[name=formComidaFavorita][value=${this.usuario.comida}]`).click();
+      //cy.get(`[name=formComidaFavorita][value=${this.usuario.comida}]`).click(); ver pq n está funcionando
       cy.get('#formEscolaridade').select(this.usuario.escolaridade);
       cy.get('#formEsportes').select(this.usuario.esportes)
   })  
