@@ -23,6 +23,7 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+import cypress from 'cypress';
 import loc from './locators'
 
 Cypress.Commands.add('clickalert', (locator, message) => { 
@@ -68,5 +69,20 @@ Cypress.Commands.add('resetRest', () => {
         headers: { Authorization: `JWT ${token}`}
 
         }).its('status').should('be.equal', 200)
+    })
+})
+
+Cypress.Commands.add('getContaByName', name => {
+    cy.getToken('a@a', 'a').then(token => {    
+        cy.request({
+            method: 'GET',
+            url: '/contas',
+            headers: { Authorization: ` JWT ${token}` },
+            qs: {
+                nome: name
+            }
+        }).then(res => {
+            return res.body[0].id
+        })
     })
 })
